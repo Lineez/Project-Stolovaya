@@ -1,5 +1,6 @@
 'use strict'
-
+@@include('./_dynamicAdaptiv.js');
+const da = new DynamicAdapt('max'); da.init();
 // Меню
 const burger = document.querySelector('.top-header__burger');
 const menu = document.querySelector('.top-header__ul');

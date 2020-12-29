@@ -23,8 +23,17 @@ mail.addEventListener('click', (e) => {
 
 const span = document.querySelector('.search-header__selected');
 const category = document.querySelector('.search-header__category');
+const inputs = document.querySelectorAll('.search-header__category input');
+
 
 span.addEventListener('click', (e) => {
 	category.classList.toggle('active');
 	span.classList.toggle('active');
+	inputs.forEach(el => {
+		el.addEventListener('click', () => {
+			span.innerHTML = el.value;
+			span.classList.remove('active');
+			category.classList.remove('active');
+		})
+	});
 })

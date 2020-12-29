@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<link rel="preload" as="font" href="./fonts/Myriad-Pro.woff2" type="font/woff2" crossorigin>
-	<link rel="preload" as="font" href="./fonts/MyriadPro-LightSemiExt.woff2" type="font/woff2" crossorigin>
+	<link rel="preload" as="font" href="./fonts/Myriad-Pro-LightSemiExt.woff2" type="font/woff2" crossorigin>
 	<link rel="stylesheet" href="./css/style.min.css">
 	<title></title>
 </head>
@@ -73,37 +73,38 @@
 			<div class="header__search search-header">
 				<span class="search-header__selected">Все</span>
 				<div class="search-header__category">
+
 					<label class="search-header__label">Выберите категорию:
 						<input disabled type="radio" name="category" class="search-header__input">
 					</label>
 					<label class="search-header__label">Все
-						<input type="radio" name="category" class="search-header__input">
+						<input type="radio" name="category" class="search-header__input" value="Все">
 					</label>
-					<label class="search-header__label">Холодильное
-						<input type="radio" name="category" class="search-header__input">
+					<label class="search-header__label">Холодильное-прехолодильное
+						<input type="radio" name="category" class="search-header__input" value="Холодильное-прехолодильное">
 					</label>
 					<label class="search-header__label">Другое
-						<input type="radio" name="category" class="search-header__input">
+						<input type="radio" name="category" class="search-header__input" value="Другое">
 					</label>
 					<label class="search-header__label">Все
-						<input type="radio" name="category" class="search-header__input">
+						<input type="radio" name="category" class="search-header__input" value="Все">
 					</label>
-					<label class="search-header__label">Холодильное
-						<input type="radio" name="category" class="search-header__input">
+					<label class="search-header__label">Холодильное-прехолодильное
+						<input type="radio" name="category" class="search-header__input" value="Холодильное-прехолодильное">
 					</label>
 					<label class="search-header__label">Другое
-						<input type="radio" name="category" class="search-header__input">
+						<input type="radio" name="category" class="search-header__input" value="Другое">
 					</label>
 					<label class="search-header__label">Все
-						<input type="radio" name="category" class="search-header__input">
+						<input type="radio" name="category" class="search-header__input" value="Все">
 					</label>
 					<label class="search-header__label">Холодильное
-						<input type="radio" name="category" class="search-header__input">
+						<input type="radio" name="category" class="search-header__input" value="Холодильное">
 					</label>
 					<label class="search-header__label">Другое
-						<input type="radio" name="category" class="search-header__input">
+						<input type="radio" name="category" class="search-header__input" value="Другое">
 					</label>
-					
+
 				</div>
 
 				<div class="search-header__place">
@@ -118,8 +119,10 @@
 					<p><a href="#">Мы на портале поставщиков</a></p>
 				</div>
 				<div class="header__cart">
-					<p class="header__sum">Сумма</p>
-					<p class="header__rub">150 000 руб.</p>
+					<div class="header__price">
+						<p class="header__sum">Сумма</p>
+						<p class="header__rub">150 000 руб.</p>
+					</div>
 				</div>
 			</div>
 		</div>

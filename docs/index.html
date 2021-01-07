@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<link rel="preload" as="font" href="./fonts/Myriad-Pro.woff2" type="font/woff2" crossorigin>
 	<link rel="preload" as="font" href="./fonts/Myriad-Pro-LightSemiExt.woff2" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	<link rel="stylesheet" href="./css/style.min.css">
 	<title></title>
 </head>
@@ -168,12 +169,244 @@
 	</div>
 	<!-- Нижняя секция -->
 	<div class="header__bottom">
-		<div class="header__wrap">
-
+		<a href="#" class="header__equipment">Оборудование</a>
+		<div class="header__wrap header__wrap_bottom">
+			<div class="header__card">
+				<div class="header__ellips">
+					<img src="./img/header/e1.png" alt="e1">
+				</div>
+				<p class="header__name">Тепловое</p>
+			</div>
+			<div class="header__card">
+				<div class="header__ellips">
+					<img src="./img/header/e2.png" alt="e2">
+				</div>
+				<p class="header__name">Холодильное</p>
+			</div>
+			<div class="header__card">
+				<div class="header__ellips">
+					<img src="./img/header/e3.png" alt="e3">
+				</div>
+				<p class="header__name">Электромеханическое</p>
+			</div>
+			<div class="header__card">
+				<div class="header__ellips">
+					<img src="./img/header/e4.png" alt="e4">
+				</div>
+				<p class="header__name">Посудомоечное</p>
+			</div>
+			<div class="header__card">
+				<div class="header__ellips">
+					<img src="./img/header/e5.png" alt="e5">
+				</div>
+				<p class="header__name">Хлебопекарное</p>
+			</div>
+			<div class="header__card">
+				<div class="header__ellips">
+					<img src="./img/header/e6.png" alt="e6">
+				</div>
+				<p class="header__name">Линии раздачи</p>
+			</div>
+			<div class="header__card">
+				<div class="header__ellips">
+					<img src="./img/header/e7.png" alt="e7">
+				</div>
+				<p class="header__name">Нейтральное</p>
+			</div>
+			<div class="header__card">
+				<div class="header__ellips">
+					<img src="./img/header/e8.png" alt="e8">
+				</div>
+				<p class="header__name">Для фаст фуда</p>
+			</div>
+			<div class="header__card">
+				<div class="header__ellips">
+					<img src="./img/header/e9.png" alt="e9">
+				</div>
+				<p class="header__name">Для залов</p>
+			</div>
+			<div class="header__card">
+				<div class="header__ellips">
+					<img src="./img/header/e10.png" alt="e10">
+				</div>
+				<p class="header__name">Вспомогательное</p>
+			</div>
+			<div class="header__card">
+				<div class="header__ellips">
+					<img src="./img/header/e11.png" alt="e11">
+				</div>
+				<p class="header__name">Для магазинов</p>
+			</div>
 		</div>
 	</div>
-</header>
+	<div class="popup">
+	<div class="popup__body">
+		<div class="popup__content">
+			<div class="popup__close"><span></span></div>
+			<div class="popup__search search-header">
+				<span class="search-header__selected">Все</span>
+				<div class="search-header__category">
+
+					<label class="search-header__label">Выберите категорию:
+						<input disabled type="radio" name="category" class="search-header__input">
+					</label>
+					<label class="search-header__label">Все
+						<input type="radio" name="category" class="search-header__input" value="Все">
+					</label>
+					<label class="search-header__label">Холодильное-прехолодильное
+						<input type="radio" name="category" class="search-header__input" value="Холодильное-прехолодильное">
+					</label>
+					<label class="search-header__label">Другое
+						<input type="radio" name="category" class="search-header__input" value="Другое">
+					</label>
+					<label class="search-header__label">Все
+						<input type="radio" name="category" class="search-header__input" value="Все">
+					</label>
+					<label class="search-header__label">Холодильное-прехолодильное
+						<input type="radio" name="category" class="search-header__input" value="Холодильное-прехолодильное">
+					</label>
+					<label class="search-header__label">Другое
+						<input type="radio" name="category" class="search-header__input" value="Другое">
+					</label>
+					<label class="search-header__label">Все
+						<input type="radio" name="category" class="search-header__input" value="Все">
+					</label>
+					<label class="search-header__label">Холодильное
+						<input type="radio" name="category" class="search-header__input" value="Холодильное">
+					</label>
+					<label class="search-header__label">Другое
+						<input type="radio" name="category" class="search-header__input" value="Другое">
+					</label>
+
+				</div>
+
+				<div class="search-header__place">
+					<input type="text" name="search" id="search" autocomplete="off">
+				</div>
+
+				<div class="search-header__button"></div>
+			</div>
+		</div>
 	</div>
+</div>
+</header>
+		<main class="main">
+	<div class="informer">
+		<div class="informer__wrap">
+			<!-- Блок категорий товаров -->
+			<div class="informer__categories categories-informer">
+				<h2 class="categories-informer__h2">Целевые предложения</h2>
+				<ul class="categories-informer__ul">
+					<li class="categories-informer__li"><a href="#" class="categories-informer__a">
+							Кафе, барам, ресторанам</a></li>
+					<li class="categories-informer__li"><a href="#" class="categories-informer__a">
+							Дестким садам и школам</a></li>
+					<li class="categories-informer__li"><a href="#" class="categories-informer__a">
+							Таблет-питание</a></li>
+					<li class="categories-informer__li"><a href="#" class="categories-informer__a">
+							Для столовых</a></li>
+					<li class="categories-informer__li"><a href="#" class="categories-informer__a">
+							Для пищеблоков</a></li>
+					<li class="categories-informer__li"><a href="#" class="categories-informer__a">
+							Государственным заказкам</a></li>
+					<li class="categories-informer__li"><a href="#" class="categories-informer__a">
+							Для магазинов</a></li>
+					<li class="categories-informer__li"><a href="#" class="categories-informer__a">
+							Для войсковых частей</a></li>
+					<li class="categories-informer__li"><a href="#" class="categories-informer__a">
+							Все предложения</a></li>
+				</ul>
+			</div>
+			<!-- Блок-слайдер -->
+			<div class="informer__slider slider-informer">
+				<!-- Обязательный контейнер слайдера -->
+				<div class="swiper-container">
+					<!-- Обязательная обертка слайдера -->
+					<div class="swiper-wrapper">
+						<!-- Слайд -->
+						<div class="swiper-slide">
+							<div class="slider-informer__row">
+								<div class="slider-informer__column slider-informer__column_info">
+									<p class="slider-informer__name">Портфолио</p>
+									<h2 class="slider-informer__h2">НИИ скорой помощи им. Н.В. Склифосовского</h2>
+									<p class="slider-informer__info">Оборудование для пищеблоков</p>
+									<div class="slider-informer__link"><a href="#" class="slider-informer__a">Подробнее</a></div>
+
+								</div>
+								<div class="slider-informer__column slider-informer__column_img">
+									<img src="./img/main/slider/equipments.png" alt="Холодильник">
+								</div>
+							</div>
+						</div>
+						<!-- Слайд -->
+						<div class="swiper-slide">
+							<div class="slider-informer__row">
+								<div class="slider-informer__column slider-informer__column_info">
+									<p class="slider-informer__name">Портфолио</p>
+									<h2 class="slider-informer__h2">НИИ скорой помощи им. Н.В. Склифосовского</h2>
+									<p class="slider-informer__info">Оборудование для пищеблоков</p>
+									<div class="slider-informer__link"><a href="#" class="slider-informer__a">Подробнее</a></div>
+
+								</div>
+								<div class="slider-informer__column slider-informer__column_img">
+									<img src="./img/main/slider/equipments.png" alt="Холодильник">
+								</div>
+							</div>
+						</div>
+						<!-- Слайд -->
+						<div class="swiper-slide">
+							<div class="slider-informer__row">
+								<div class="slider-informer__column slider-informer__column_info">
+									<p class="slider-informer__name">Портфолио</p>
+									<h2 class="slider-informer__h2">НИИ скорой помощи им. Н.В. Склифосовского</h2>
+									<p class="slider-informer__info">Оборудование для пищеблоков</p>
+									<div class="slider-informer__link"><a href="#" class="slider-informer__a">Подробнее</a></div>
+
+								</div>
+								<div class="slider-informer__column slider-informer__column_img">
+									<img src="./img/main/slider/equipments.png" alt="Холодильник">
+								</div>
+							</div>
+						</div>
+						<!-- Слайд -->
+						<div class="swiper-slide">
+							<div class="slider-informer__row">
+								<div class="slider-informer__column slider-informer__column_info">
+									<p class="slider-informer__name">Портфолио</p>
+									<h2 class="slider-informer__h2">НИИ скорой помощи им. Н.В. Склифосовского</h2>
+									<p class="slider-informer__info">Оборудование для пищеблоков</p>
+									<div class="slider-informer__link"><a href="#" class="slider-informer__a">Подробнее</a></div>
+
+								</div>
+								<div class="slider-informer__column slider-informer__column_img">
+									<img src="./img/main/slider/equipments.png" alt="Холодильник">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- If we need pagination -->
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+			<!-- Блок скидок и распродаж -->
+			<div class="informer__sale sale-informer">
+				<div href="#" class="sale-informer__card">
+					<div class="sale-informer__wrap">
+						<div class="sale-informer__img-container">
+							<img src="../img/main/sale/giftbox.png" alt="Подарок">
+						</div>
+						<p class="sale-informer__info">Самые низкие цены</p>
+						<h2 class="sale-informer__h2">Распродажа</h2>
+						<a class="sale-informer__a">Каталог распродаж</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+	</div>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script src="./js/script.min.js"></script>
 </body>
 </html>

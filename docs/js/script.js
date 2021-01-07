@@ -142,6 +142,230 @@ class DynamicAdapt {
   }
 }
 ;
+const popup = document.querySelector('.popup');
+const popupBtn = document.querySelector('.header__search-mobile');
+const popupClose = document.querySelector('.popup__close');
+
+if (popup) {
+	// Открытие окна
+	popupBtn.addEventListener('click', (e) => {
+		popup.classList.toggle('active');
+	})
+	// Закрытие окна по кнопке
+	popupClose.addEventListener('click', (e) => {
+		popup.classList.remove('active');
+	})
+	// Закрытие окна по клику вне окна
+	popup.addEventListener('click', (e) => {
+		if (!e.target.closest('.popup__content')) {
+			popup.classList.remove('active');
+		}
+	})
+};
+// Инициализируем Swiper
+// Добавить класс обьекта который будет слайдером
+new Swiper('.swiper-container', {
+
+	// // Автовысота
+	// autoHeight: true,
+
+	// Отступ между слайдами
+	spaceBetween: 0,
+
+	// // Стартовый слайд ( отсчет с нуля )
+	// initialSlide: 1,
+
+	// Вкл\откл свайпов на пк
+	simulateTouch: true,
+	// Курсор перетаскивания
+	grabCursor: true,
+
+	// =======================================================================
+	// Навигация
+
+	// Стрелки, выводятся в :after
+	// navigation: {
+	// 	prevEl: '.swiper-button-prev',
+	// 	nextEl: '.swiper-button-next',
+	// },
+
+	// Мобайл-first подход (min-width: ...)
+	// breakpoints: {
+	// 	768: {
+			
+	// 	}
+	// },
+
+	// // ========================================================
+	// Включить предзагрузку изображений
+	preloadImages: false,
+	// Ленивая загрузка
+	lazy: {
+		// Начало загрузки при свайпе
+		loadOnTransitionStart: true,
+		// Подгружать prev/next картинки
+		loadPrevNext: true,
+	},
+
+	// Слежка за видимыми слайдами
+	watchSlidesProgress: true,
+	// Добавление класса видимым сладам
+	watchSlidesVisibility: true,
+
+
+	// // Бесконечность
+	loop: true,
+	// // Количество?
+	// loopedSlides: 2,
+
+	// // Свободный режим
+	// freeMode: true,
+
+	// // Скорость переключения слайдов
+	speed: 900,
+
+	// Автопрокрутка
+	autoplay: {
+		// Задержка
+		delay: 3500,
+		// Закончить на последнем слайде
+		stopOnLastSlide: false,
+		// откючить после юзера
+		disableOnInteraction: false,
+	},
+
+
+	// // Количество выводимых слайдов ( в том числе дробные числа)
+	// // если slidesPerView: 'auto', Добваить swiper-slide - width: auto;
+	// slidesPerView: 1,
+	// // Переключение слайдов при клике ( центрирование среди нескольких слайдов )
+	// slideToClickedSlide: true,
+
+	// // Количество пролистываемых слайдов
+	// slidesPerGroup: 1,
+	// // Активный слайд по центру ( для группы слайдов)
+	// centeredSlides: true,
+
+	// // Чувствительность свайпа
+	// touchRatio: 1,
+	// // Угол срабатывания свайпа
+	// touchAngle: 45,
+
+
+	// // вертикальный слайд \\ явно задать высоту слайдера
+	// 	direction: 'vertical',
+	// 	freeMode: true,
+
+	// // Мультирядность? явно задать высоту слайдов
+	// autoHeight: false,
+	// slidesPerColumn: 2,
+
+
+	// // =======================================================================
+	// Пагинация
+	pagination: {
+		el: '.swiper-pagination',
+
+
+		// Буллеты
+		type: 'bullets',
+		// clickable: true,	
+		// // Динамические буллеты
+		// dynamicBullets: true,
+		// // Кастомные буллеты
+		// // !!!!!!!Не работает c dynamicBullets
+		// renderBullet: function(index, className) {
+		// 	return '<span class="' + className + '">' + (index + 1) + '</span>';
+		// },
+
+
+		// // Фракция
+		// type: 'fraction',
+		// // Кастомная фракция
+		// renderFraction: function(currentClass, totalClass) {
+		// 	return 'Фото <span class="' + currentClass + '"></span>' + ' из ' + '<span class="' + totalClass + '"></span>';
+		// },
+
+
+	// 	// Прогрессбар
+	// 	type: 'progressbar'
+	},
+
+	// =======================================================================
+	// 	// Скролл
+	// 	scrollbar: {
+	// 		el: '.swiper-scrollbar',
+	// 		// Перетаскивание скролла
+	// 		draggable: true,
+	// 	},
+
+	// // =======================================================================
+	// 	// Навигация по хешу ( добавить атрибут data-hash="foo[i]" к "слайду")
+	// 	hashNavigation: {
+	// 		// отслеживать ( дает возможность навигации по стрелкам браузера(хешу посещенных слайдов))
+	// 		watchState: true,
+	// 	},
+
+
+	// // =======================================================================
+	// // Управление клавиатурой
+	// keyboard: {
+	// 	// Включить
+	// 	enabled: true,
+	// 	// Только в пределах слайдера (не на всей странице)
+	// 	onlyInViewport: true,
+	// 	// Включить pageUp\Down
+	// 	pageUpDown: true,
+	// }
+
+	// // Прокрутка колесом мыши
+	// mousewheel: {
+	// 	// Чувствительность
+	// 	sensitivity: 1,
+	// 	// Класс обьекта на котором будет срабатывать ( слайдер? )
+	// 	// eventsTarget: '.swiper-container'
+	// },
+
+	// // Эффект по умолчанию
+	// effect: 'slide',
+
+	// // Эффект прозрачности
+	// effect: 'fade',
+	// fadeEffect: {
+	// 	// Параллельная смена прозрачности
+	// 	crossFade: true,
+	// },
+
+	// // Эффект переворота
+	// effect: 'flip',
+	// flipEffect: {
+	// 	// Тень
+	// 	slideShadows: true,
+	// 	// Показ только активного слайда
+	// 	limitRotation: true,
+	// },
+
+	// Эффект 3д куба
+	// effect: 'cube',
+	// cubeEffect: {
+	// 	slideShadows: true,
+	// 	shadow: true,
+	// 	shadowOffset: 20,
+	// 	shadowScale: 0.95,
+	// },
+
+	// Эффект потока
+	// effect: 'coverflow',
+	// coverFlowEffect: {
+	// 	// Угол
+	// 	rotate: 20,
+	// 	// Наложение
+	// 	stretch: 50,
+	// 	// Тень
+	// 	slideShadows: true,
+	// },
+
+});;
 const da = new DynamicAdapt('max'); da.init();
 // Меню
 const burger = document.querySelector('.top-header__burger');
@@ -183,19 +407,35 @@ phoneClose.addEventListener('click', (e) => {
 
 // При клике на все (выбор категории поиска)
 
-const span = document.querySelector('.search-header__selected');
-const category = document.querySelector('.search-header__category');
+const spans = document.querySelectorAll('.search-header__selected');
+const categories = document.querySelectorAll('.search-header__category');
 const inputs = document.querySelectorAll('.search-header__category input');
 
-
-span.addEventListener('click', (e) => {
-	category.classList.toggle('active');
-	span.classList.toggle('active');
-	inputs.forEach(el => {
-		el.addEventListener('click', () => {
-			span.innerHTML = el.value;
-			span.classList.remove('active');
-			category.classList.remove('active');
+// Выбор категорий товаров в поиске
+spans.forEach((span) => {
+	span.addEventListener('click', (e) => {
+		categories.forEach((category) => {
+			category.classList.toggle('active');
+			span.classList.toggle('active');
+			inputs.forEach(input => {
+				input.addEventListener('click', () => {
+					span.innerHTML = input.value;
+					span.classList.remove('active');
+					category.classList.remove('active');
+				})
+			});
 		})
-	});
+	})
 })
+
+//===============================================
+
+// Оборудование
+const equipmentsLink = document.querySelector('.header__equipment');
+const equipmentsGoods = document.querySelector('.header__wrap_bottom');
+
+if(equipmentsLink) {
+	equipmentsLink.addEventListener('click', () => {
+		equipmentsGoods.classList.toggle('active');
+	})
+}

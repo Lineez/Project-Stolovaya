@@ -1,167 +1,113 @@
 'use strict'
-class DynamicAdapt {
-  constructor(type) {
-    this.type = type;
-  }
+//===============================================
+// Все обьекты открывающие попапы !добавить класс к ссылке, которая откроет попап
+const popupLinks = document.querySelectorAll('._popup-link');
+const body = document.querySelector('body');
+// Все обьекты без дополнительного паддинга !добавить класс к обьекту который не нужно двигать
+const popupPadding = document.querySelectorAll('._popup-padding');
 
-  init() {
-    // массив объектов
-    this.оbjects = [];
-    this.daClassname = '_dynamic_adapt_';
-    // массив DOM-элементов
-    this.nodes = [...document.querySelectorAll('[data-da]')];
+// Для фикса двойных нажатий
+let unlock = true;
+// Фикс скрола, !указать равным transition (transition: all 0.7s ease 0s;)
+const timeout = 700;
 
-    // наполнение оbjects объктами
-    this.nodes.forEach((node) => {
-      const data = node.dataset.da.trim();
-      const dataArray = data.split(',');
-      const оbject = {};
-      оbject.element = node;
-      оbject.parent = node.parentNode;
-      оbject.destination = document.querySelector(`${dataArray[0].trim()}`);
-      оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : '767';
-      оbject.place = dataArray[2] ? dataArray[2].trim() : 'last';
-      оbject.index = this.indexInParent(оbject.parent, оbject.element);
-      this.оbjects.push(оbject);
-    });
-
-    this.arraySort(this.оbjects);
-
-    // массив уникальных медиа-запросов
-    this.mediaQueries = this.оbjects
-      .map(({
-        breakpoint
-      }) => `(${this.type}-width: ${breakpoint}px),${breakpoint}`)
-      .filter((item, index, self) => self.indexOf(item) === index);
-
-    // навешивание слушателя на медиа-запрос
-    // и вызов обработчика при первом запуске
-    this.mediaQueries.forEach((media) => {
-      const mediaSplit = media.split(',');
-      const matchMedia = window.matchMedia(mediaSplit[0]);
-      const mediaBreakpoint = mediaSplit[1];
-
-      // массив объектов с подходящим брейкпоинтом
-      const оbjectsFilter = this.оbjects.filter(
-        ({
-          breakpoint
-        }) => breakpoint === mediaBreakpoint
-      );
-      matchMedia.addEventListener('change', () => {
-        this.mediaHandler(matchMedia, оbjectsFilter);
-      });
-      this.mediaHandler(matchMedia, оbjectsFilter);
-    });
-  }
-
-  // Основная функция
-  mediaHandler(matchMedia, оbjects) {
-    if (matchMedia.matches) {
-      оbjects.forEach((оbject) => {
-        оbject.index = this.indexInParent(оbject.parent, оbject.element);
-        this.moveTo(оbject.place, оbject.element, оbject.destination);
-      });
-    } else {
-      оbjects.forEach(
-        ({ parent, element, index }) => {
-          if (element.classList.contains(this.daClassname)) {
-            this.moveBack(parent, element, index);
-          }
-        }
-      );
-    }
-  }
-
-  // Функция перемещения
-  moveTo(place, element, destination) {
-    element.classList.add(this.daClassname);
-    if (place === 'last' || place >= destination.children.length) {
-      destination.append(element);
-      return;
-    }
-    if (place === 'first') {
-      destination.prepend(element);
-      return;
-    }
-    destination.children[place].before(element);
-  }
-
-  // Функция возврата
-  moveBack(parent, element, index) {
-    element.classList.remove(this.daClassname);
-    if (parent.children[index] !== undefined) {
-      parent.children[index].before(element);
-    } else {
-      parent.append(element);
-    }
-  }
-
-  // Функция получения индекса внутри родителя
-  indexInParent(parent, element) {
-    return [...parent.children].indexOf(element);
-  }
-
-  // Функция сортировки массива по breakpoint и place 
-  // по возрастанию для this.type = min
-  // по убыванию для this.type = max
-  arraySort(arr) {
-    if (this.type === 'min') {
-      arr.sort((a, b) => {
-        if (a.breakpoint === b.breakpoint) {
-          if (a.place === b.place) {
-            return 0;
-          }
-          if (a.place === 'first' || b.place === 'last') {
-            return -1;
-          }
-          if (a.place === 'last' || b.place === 'first') {
-            return 1;
-          }
-          return a.place - b.place;
-        }
-        return a.breakpoint - b.breakpoint;
-      });
-    } else {
-      arr.sort((a, b) => {
-        if (a.breakpoint === b.breakpoint) {
-          if (a.place === b.place) {
-            return 0;
-          }
-          if (a.place === 'first' || b.place === 'last') {
-            return 1;
-          }
-          if (a.place === 'last' || b.place === 'first') {
-            return -1;
-          }
-          return b.place - a.place;
-        }
-        return b.breakpoint - a.breakpoint;
-      });
-      return;
-    }
-  }
+if (popupLinks.length > 0) {
+	for (let i = 0; i < popupLinks.length; i++) {
+		const popupLink = popupLinks[i];
+		popupLink.addEventListener('click', (e) => {
+			const popupName = popupLink.getAttribute('href').replace('#', '');
+			const currentPopup = document.getElementById(popupName);
+			popupOpen(currentPopup);
+			e.preventDefault();
+		})
+	}
 }
-;
-const popup = document.querySelector('.popup');
-const popupBtn = document.querySelector('.header__search-mobile');
-const popupClose = document.querySelector('.popup__close');
 
-if (popup) {
-	// Открытие окна
-	popupBtn.addEventListener('click', (e) => {
-		popup.classList.toggle('active');
-	})
-	// Закрытие окна по кнопке
-	popupClose.addEventListener('click', (e) => {
-		popup.classList.remove('active');
-	})
-	// Закрытие окна по клику вне окна
-	popup.addEventListener('click', (e) => {
-		if (!e.target.closest('.popup__content')) {
-			popup.classList.remove('active');
+// Все обьекты закрывающие попапы !добавить класс к ссылке, которая закрое попап
+const popupCloseObject = document.querySelectorAll('._popup-close');
+
+if (popupCloseObject.length > 0) {
+	for (let i = 0; i < popupCloseObject.length; i++) {
+		const el = popupCloseObject[i];
+		el.addEventListener('click', (e) => {
+			popupClose(el.closest('.popup'));
+			e.preventDefault();
+		})
+	}
+}
+
+function popupOpen(currentPopup) {
+	if (currentPopup && unlock) {
+		const popupActive = document.querySelector('.popup.open');
+		if (popupActive) {
+			popupClose(popupActive, false);
+		} else {
+			bodyLock();
 		}
-	})
-};
+		currentPopup.classList.add('open');
+		currentPopup.addEventListener('click', (e) => {
+			if (!e.target.closest('.popup__content')) {
+				popupClose(e.target.closest('.popup'));
+			}
+		});
+	}
+}
+
+function popupClose(popupActive, doUnlock = true) {
+	if (unlock) {
+		popupActive.classList.remove('open');
+		burger.classList.remove('active');
+		if (doUnlock) {
+			bodyUnlock();
+		}
+	}
+}
+
+
+function bodyLock() {
+	const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+
+	if (popupPadding.length > 0) {
+		for (let i = 0; i < popupPadding.length; i++) {
+			const el = popupPadding[i];
+			el.style.paddingRight = lockPaddingValue;
+		}
+	}
+	body.style.paddingRight = lockPaddingValue;
+	body.classList.add('lock');
+
+	unlock = false;
+	setTimeout(function () {
+		unlock = true;
+	}, timeout);
+}
+
+function bodyUnlock() {
+	setTimeout(function () {
+		if (popupPadding.length > 0) {
+			for (let i = 0; i < popupPadding.length; i++) {
+				const el = popupPadding[i];
+				el.style.paddingRight = '0px';
+			}
+		}
+		body.style.paddingRight = '0px';
+		body.classList.remove('lock');
+	}, timeout)
+
+	unlock = false;
+	setTimeout(function () {
+		unlock = true;
+	}, timeout);
+}
+
+// Закрытие по нажатию esc
+document.addEventListener('keydown', (e) => {
+	if(e.which === 27) {
+		const popupActive = document.querySelector('.popup.open');
+		popupClose(popupActive);
+	}
+});
+//===============================================
 // Инициализируем Swiper
 // Добавить класс обьекта который будет слайдером
 new Swiper('.swiper-container', {
@@ -366,28 +312,41 @@ new Swiper('.swiper-container', {
 	// },
 
 });;
-const da = new DynamicAdapt('max'); da.init();
-// Меню
-const burger = document.querySelector('.top-header__burger');
-const menu = document.querySelector('.top-header__ul');
+
+//===============================================
+// Меню-бургер
+const burger = document.querySelector('.header__burger');
 
 burger.addEventListener('click', () => {
 	burger.classList.toggle('active');
-	menu.classList.toggle('active');
 })
 
+//===============================================
+// Корзина
+// Смена картинки
+const cart = document.querySelector('.cart');
+const cartImg = document.querySelector('.cart img');
 
+cart.addEventListener('mouseover', () => {
+	cartImg.src = './img/header/cart-white.png'
+})
+cart.addEventListener('mouseout', () => {
+	cartImg.src = './img/header/cart-black.png'
+})
+
+//===============================================
 // Почта
 const mail = document.querySelector('.top-header__li_mail');
 const mailSpan = document.querySelector('.top-header__li_mail span');
 
 mail.addEventListener('click', (e) => {
 	mailSpan.classList.toggle('active');
-	if(phonePopup.classList.contains('active')) {
+	if (phonePopup.classList.contains('active')) {
 		phonePopup.classList.remove('active');
 	}
 });
 
+//===============================================
 // Телефон
 const phone = document.querySelector('.top-header__li_phone');
 const phonePopup = document.querySelector('.top-header__phone-container');
@@ -395,7 +354,7 @@ const phoneClose = document.querySelector('.phone__close');
 
 phone.addEventListener('click', (e) => {
 	phonePopup.classList.toggle('active');
-	if(mailSpan.classList.contains('active')) {
+	if (mailSpan.classList.contains('active')) {
 		mailSpan.classList.remove('active');
 	}
 })
@@ -404,38 +363,48 @@ phoneClose.addEventListener('click', (e) => {
 	phonePopup.classList.remove('active');
 })
 
-
+//===============================================
 // При клике на все (выбор категории поиска)
 
-const spans = document.querySelectorAll('.search-header__selected');
-const categories = document.querySelectorAll('.search-header__category');
-const inputs = document.querySelectorAll('.search-header__category input');
+const viewCategory = document.querySelector('.search-header__selected');
+const selectCategory = document.querySelector('.search-header__category');
+const inputsCategory = document.querySelectorAll('.search-header__category input');
 
-// Выбор категорий товаров в поиске
-spans.forEach((span) => {
-	span.addEventListener('click', (e) => {
-		categories.forEach((category) => {
-			category.classList.toggle('active');
-			span.classList.toggle('active');
-			inputs.forEach(input => {
-				input.addEventListener('click', () => {
-					span.innerHTML = input.value;
-					span.classList.remove('active');
-					category.classList.remove('active');
-				})
-			});
-		})
+
+viewCategory.addEventListener('click', (e) => {
+	viewCategory.classList.toggle('active');
+	selectCategory.classList.toggle('active');
+})
+
+inputsCategory.forEach((el, key) => {
+	el.addEventListener('click', () => {
+		viewCategory.innerHTML = el.value;
+		viewCategory.classList.remove('active');
+		selectCategory.classList.remove('active');
 	})
 })
 
 //===============================================
+// Выдача поиска
+const searchInput = document.querySelector('.search-header__place input');
+const searchList = document.querySelector('.search-header__body');
 
-// Оборудование
-const equipmentsLink = document.querySelector('.header__equipment');
-const equipmentsGoods = document.querySelector('.header__wrap_bottom');
+searchInput.addEventListener('keydown', (e) => {
+	searchList.classList.add('active');
+	if(searchInput.value == '') {
+		searchList.classList.remove('active');
+	}
+})
 
-if(equipmentsLink) {
-	equipmentsLink.addEventListener('click', () => {
-		equipmentsGoods.classList.toggle('active');
-	})
-}
+//===============================================
+// Поиск на мобильных устройствах
+const search = document.querySelector('.search-header');
+const searchMobile = document.querySelector('.header__search-mobile');
+const searcClose = document.querySelector('.search-header__close');
+
+searchMobile.addEventListener('click', () => {
+	search.classList.add('active');
+})
+searcClose.addEventListener('click', () => {
+	search.classList.remove('active');
+})

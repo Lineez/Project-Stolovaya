@@ -1,0 +1,190 @@
+.news {
+
+	// .news__wrap
+	&__wrap {
+		max-width: 1430px;
+		margin: 0 auto;
+		padding: calc(40px + (170 - 40) * ((100vw - 320px) / (1920 - 320))) calc(15px + (50 - 15) * ((100vw - 320px) / (1920 - 320)));
+	}
+
+	// .news__h2
+	&__h2 {
+		font-size: 40px;
+		color: #121212;
+		padding-bottom: calc(25px + (50 - 25) * ((100vw - 320px) / (1920 - 320)));
+	}
+
+	// .news__row
+	&__row {
+		display: flex;
+		margin: 0 calc(-15px + (-50 - -15) * ((100vw - 320px) / (1920 - 320)));
+
+		@media (max-width:1440px) {
+			flex-direction: column;
+		}
+	}
+
+	// .news__column
+	&__column {
+		flex: 1 1 auto;
+		padding: 0 calc(15px + (50 - 15) * ((100vw - 320px) / (1920 - 320)));
+
+		// .news__column_big
+		&_big {
+			flex: 0 0 600px;
+
+			@media (max-width:1440px) {
+				flex: 0 0 auto;
+			}
+		}
+
+		// .news__column_small
+		&_small {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	// .news__card
+	&__card {
+		@media (max-width:600px) {
+			display: flex;
+			flex-direction: column;
+		}
+
+		// .news__card_big
+		&_big {
+			@media (max-width:1440px) {
+				display: flex;
+				margin: 0 0 40px;
+			}
+		}
+
+		// .news__card_small
+		&_small {
+			display: flex;
+			margin: 0 0 40px;
+		}
+	}
+
+	// .news__img-container
+	&__img-container {
+		overflow: hidden;
+
+		@media (max-width:600px) {
+			img {
+				flex: 1 1 auto;
+				min-height: auto;
+			}
+		}
+
+		// .news__img-container_big
+		&_big {
+			flex: 0 0 500px;
+			margin-bottom: 20px;
+
+			img {
+				width: 100%;
+			}
+
+			@media (max-width:1440px) {
+				flex: 0 0 190px;
+				margin-right: 20px;
+
+				img {
+					min-height: 170px;
+				}
+			}
+
+			@media (max-width:600px) {
+				margin-right: 0;
+				margin-bottom: 15px;
+			}
+		}
+
+		// .news__img-container_small
+		&_small {
+			flex: 0 0 190px;
+			margin-right: 20px;
+
+			img {
+				width: 100%;
+				min-height: 170px;
+			}
+
+			@media (max-width:600px) {
+				margin-right: 0;
+				margin-bottom: 15px;
+			}
+		}
+
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			transition: all 0.8s ease 0s;
+
+			@media (min-width:768px) {
+				&:hover {
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
+
+	// .news__info
+	&__info {
+		flex: 1 1 auto;
+	}
+
+	// .news__dealer
+	&__dealer {}
+
+	// .news__h3
+	&__h3 {
+		font-size: 24px;
+		line-height: calc(36/24);
+		color: #121212;
+		padding: 15px 0 20px;
+
+		@media (max-width:600px) {
+			padding: 15px 0;
+		}
+	}
+
+	// .news__description
+	&__description {
+		font-size: 16px;
+		font-family: $f2;
+		color: #121212;
+	}
+
+	// .news__all-news
+	&__all-news {
+		font-size: 16px;
+		line-height: calc(40/16);
+		font-family: $f2;
+		padding: 10px 40px;
+		border-radius: 25px;
+		border: 2px solid #000;
+	}
+
+}
+
+.dealer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 16px;
+	font-family: $f2;
+
+	// .dealer__name
+	&__name {
+		color: #00aa4b;
+	}
+
+	// .dealer__date
+	&__date {
+		color: #777777;
+	}
+}

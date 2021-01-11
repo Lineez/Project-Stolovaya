@@ -7,7 +7,6 @@
 	<meta name="description" content="">
 	<link rel="preload" as="font" href="./fonts/Myriad-Pro.woff2" type="font/woff2" crossorigin>
 	<link rel="preload" as="font" href="./fonts/Myriad-Pro-LightSemiExt.woff2" type="font/woff2" crossorigin>
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	<link rel="stylesheet" href="./css/style.min.css">
 	<title></title>
 </head>
@@ -18,47 +17,47 @@
 	<!-- Верхняя секция -->
 	<div class="header__top top-header">
 		<div class="header__wrap">
-			<!-- Иконка меню -->
-			<div class="top-header__burger" data-da=".header__wrap_body, 1440,1">
-				<span></span>
+			<div class="top-header__nav">
+				<div class="top-header__menu">
+					<!-- Список меню -->
+					<ul class="top-header__ul">
+						<li class="top-header__li">
+							<a href="#" class="top-header__a">Компания</a>
+						</li>
+						<li class="top-header__li">
+							<a href="#" class="top-header__a">Портфолио</a>
+						</li>
+						<li class="top-header__li">
+							<a href="#" class="top-header__a">Проектирование</a>
+						</li>
+						<li class="top-header__li">
+							<a href="#" class="top-header__a">Ресторанам</a>
+						</li>
+						<li class="top-header__li">
+							<a href="#" class="top-header__a">Застройщикам</a>
+						</li>
+						<li class="top-header__li">
+							<a href="#" class="top-header__a">Гос.заказчикам</a>
+						</li>
+						<li class="top-header__li">
+							<a href="#" class="top-header__a">Таблет-питание</a>
+						</li>
+						<li class="top-header__li">
+							<a href="#" class="top-header__a">Сервис</a>
+						</li>
+						<li class="top-header__li">
+							<a href="#" class="top-header__a">Контакты</a>
+						</li>
+						<li class="top-header__li top-header__li_mail">
+							<a href="#" class="top-header__a">info@stolovay.ru</a>
+							<span>Скопировать</span>
+						</li>
+						<li class="top-header__li top-header__li_phone">
+							<a href="#" class="top-header__a">8 495 790-72-05</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<!-- Список меню -->
-			<ul class="top-header__ul">
-				<li class="top-header__li">
-					<a href="#" class="top-header__a">Компания</a>
-				</li>
-				<li class="top-header__li">
-					<a href="#" class="top-header__a">Портфолио</a>
-				</li>
-				<li class="top-header__li">
-					<a href="#" class="top-header__a">Проектирование</a>
-				</li>
-				<li class="top-header__li">
-					<a href="#" class="top-header__a">Ресторанам</a>
-				</li>
-				<li class="top-header__li">
-					<a href="#" class="top-header__a">Застройщикам</a>
-				</li>
-				<li class="top-header__li">
-					<a href="#" class="top-header__a">Гос.заказчикам</a>
-				</li>
-				<li class="top-header__li">
-					<a href="#" class="top-header__a">Таблет-питание</a>
-				</li>
-				<li class="top-header__li">
-					<a href="#" class="top-header__a">Сервис</a>
-				</li>
-				<li class="top-header__li">
-					<a href="#" class="top-header__a">Контакты</a>
-				</li>
-				<li class="top-header__li top-header__li_mail">
-					<a href="#" class="top-header__a">info@stolovay.ru</a>
-					<span>Скопировать</span>
-				</li>
-				<li class="top-header__li top-header__li_phone">
-					<a href="#" class="top-header__a">8 495 790-72-05</a>
-				</li>
-			</ul>
 			<!-- При клике на телефон -->
 			<div class="top-header__phone-container">
 				<div class="top-header__phone-wrap">
@@ -83,9 +82,9 @@
 								<div class="phone__text">Мы перезвоним вам в течении часа</div>
 								<form action="#" class="phone__form form-phone__label">
 									<label for="name" class="form-phone">Имя:</label>
-										<input id="name" autocomplete="name" type="text" class="form-phone__input">
+									<input id="name" autocomplete="name" type="text" class="form-phone__input">
 									<label for="phone" class="form-phone">Телефон:</label>
-										<input id="phone" autocomplete="tel" type="tel" class="form-phone__input">
+									<input id="phone" autocomplete="tel" type="tel" class="form-phone__input">
 									<button class="form-phone__btn">Отправить</button>
 								</form>
 							</div>
@@ -99,203 +98,187 @@
 	<div class="header__body">
 		<div class="header__wrap header__wrap_body">
 
-			<div class="header__logo">
-				<p>Столовая.РУ</p>
+			<div class="header__menu">
+				<a href="#popup_1" class="header__burger _popup-link">
+					<span></span>
+				</a>
+				<a href="./" class="header__logo logo">
+					<p>Столовая.РУ</p>
+				</a>
 			</div>
 
 			<div class="header__search search-header">
-				<span class="search-header__selected">Все</span>
-				<div class="search-header__category">
+				<!-- Категории формы поиска -->
+				<div class="search-header__select">
+					<span class="search-header__selected">Все</span>
+					<div class="search-header__category">
 
-					<label class="search-header__label">Выберите категорию:
-						<input disabled type="radio" name="category" class="search-header__input">
-					</label>
-					<label class="search-header__label">Все
-						<input type="radio" name="category" class="search-header__input" value="Все">
-					</label>
-					<label class="search-header__label">Холодильное-прехолодильное
-						<input type="radio" name="category" class="search-header__input" value="Холодильное-прехолодильное">
-					</label>
-					<label class="search-header__label">Другое
-						<input type="radio" name="category" class="search-header__input" value="Другое">
-					</label>
-					<label class="search-header__label">Все
-						<input type="radio" name="category" class="search-header__input" value="Все">
-					</label>
-					<label class="search-header__label">Холодильное-прехолодильное
-						<input type="radio" name="category" class="search-header__input" value="Холодильное-прехолодильное">
-					</label>
-					<label class="search-header__label">Другое
-						<input type="radio" name="category" class="search-header__input" value="Другое">
-					</label>
-					<label class="search-header__label">Все
-						<input type="radio" name="category" class="search-header__input" value="Все">
-					</label>
-					<label class="search-header__label">Холодильное
-						<input type="radio" name="category" class="search-header__input" value="Холодильное">
-					</label>
-					<label class="search-header__label">Другое
-						<input type="radio" name="category" class="search-header__input" value="Другое">
-					</label>
+						<label form="search-form" class="search-header__label">Выберите категорию:
+							<input disabled type="radio" name="category" class="search-header__input">
+						</label>
+						<label form="search-form" class="search-header__label">Все
+							<input type="radio" name="category" class="search-header__input" value="Все">
+						</label>
+						<label form="search-form" class="search-header__label">Холодильное
+							<input type="radio" name="category" class="search-header__input" value="Холодильное">
+						</label>
+						<label form="search-form" class="search-header__label">Специализированное
+							<input type="radio" name="category" class="search-header__input" value="Специализированное">
+						</label>
+						<label form="search-form" class="search-header__label">Другое
+							<input type="radio" name="category" class="search-header__input" value="Другое">
+						</label>
 
+					</div>
 				</div>
+				<!-- выдача поиска -->
+				<div class="search-header__body">
+					<a href="#" class="search-header__a">
+						<span class="search-header__name">Имя товара
+							<span class="search-header__price">1000 руб.</span>
+							<span class="search-header__new-price">500 руб.</span>
+						</span>
 
-				<div class="search-header__place">
-					<input type="text" name="search" id="search" autocomplete="off">
+						<img src="./img/header/e1.png" alt="Имя товара">
+					</a>
+					<a href="#" class="search-header__a">
+						<span class="search-header__name">Имя товара
+							<span class="search-header__price">1000 руб.</span>
+							<span class="search-header__new-price">500 руб.</span>
+						</span>
+
+						<img src="./img/header/e2.png" alt="Имя товара">
+					</a>
+					<a href="#" class="search-header__a">
+						<span class="search-header__name">Имя товара
+							<span class="search-header__price">1000 руб.</span>
+							<span class="search-header__new-price">500 руб.</span>
+						</span>
+
+						<img src="./img/header/e3.png" alt="Имя товара">
+					</a>
 				</div>
-
-				<div class="search-header__button"></div>
+				<!-- форма поиска -->
+				<form id="search-form" action="#" class="search-header__place">
+					<input type="search" name="search" id="search" autocomplete="off">
+				</form>
+				<!-- кнопка формы поиска -->
+				<button form="search-form" type="button" class="search-header__button"></button>
+				<!-- закрытие формы, только на маленьких экранах -->
+				<span class="search-header__close">
+					<img src="./img/header/Х.png" alt="Закрыть">
+				</span>
 			</div>
 
 			<div class="header__block">
-				<div class="header__we">
-					<p><a href="#">Мы на портале поставщиков</a></p>
-				</div>
-				<a href="#" class="header__search-mobile">
-					<img src="./img/header/search-mobile.png" alt="search-mobile">
-				</a>
-				<a href="tel:+74957907205" class="header__phone-mobile">
-					<img src="./img/header/phone-mobile.png" alt="phone-mobile">
-				</a>
-				<div class="header__cart">
-					<div class="header__price">
-						<p class="header__sum">Сумма</p>
-						<p class="header__rub">150 000 руб.</p>
+				<div class="header__mobile">
+					<div class="header__search-mobile">
+						<a href="#"><img src="./img/header/search-mobile.png" alt="Поиск"></a>
+					</div>
+					<div class="header__phone-mobile">
+						<a href="tel:+74957907205"><img src="./img/header/phone-mobile.png" alt="Телефон"></a>
 					</div>
 				</div>
-			</div>
-		</div>
 
+				<a href="#" class="header__we">
+					<p>Мы на портале поставщиков</p>
+				</a>
+
+				<a href="#" class="header__cart cart">
+
+					<div class="cart__img-container">
+						<p class="cart__quantity">1221</p>
+						<img src="./img/header/cart-black.png" alt="Корзина">
+					</div>
+
+					<div class="cart__price">
+						<p class="cart__sum">Сумма</p>
+						<p class="cart__rub">150 000 руб.</p>
+					</div>
+
+				</a>
+			</div>
+
+		</div>
 	</div>
 	<!-- Нижняя секция -->
 	<div class="header__bottom">
-		<a href="#" class="header__equipment">Оборудование</a>
 		<div class="header__wrap header__wrap_bottom">
-			<div class="header__card">
+			<a class="header__card">
 				<div class="header__ellips">
 					<img src="./img/header/e1.png" alt="e1">
 				</div>
 				<p class="header__name">Тепловое</p>
-			</div>
-			<div class="header__card">
+			</a>
+			<a class="header__card">
 				<div class="header__ellips">
 					<img src="./img/header/e2.png" alt="e2">
 				</div>
 				<p class="header__name">Холодильное</p>
-			</div>
-			<div class="header__card">
+			</a>
+			<a class="header__card">
 				<div class="header__ellips">
 					<img src="./img/header/e3.png" alt="e3">
 				</div>
 				<p class="header__name">Электромеханическое</p>
-			</div>
-			<div class="header__card">
+			</a>
+			<a class="header__card">
 				<div class="header__ellips">
 					<img src="./img/header/e4.png" alt="e4">
 				</div>
 				<p class="header__name">Посудомоечное</p>
-			</div>
-			<div class="header__card">
+			</a>
+			<a class="header__card">
 				<div class="header__ellips">
 					<img src="./img/header/e5.png" alt="e5">
 				</div>
 				<p class="header__name">Хлебопекарное</p>
-			</div>
-			<div class="header__card">
+			</a>
+			<a class="header__card">
 				<div class="header__ellips">
 					<img src="./img/header/e6.png" alt="e6">
 				</div>
 				<p class="header__name">Линии раздачи</p>
-			</div>
-			<div class="header__card">
+			</a>
+			<a class="header__card">
 				<div class="header__ellips">
 					<img src="./img/header/e7.png" alt="e7">
 				</div>
 				<p class="header__name">Нейтральное</p>
-			</div>
-			<div class="header__card">
+			</a>
+			<a class="header__card">
 				<div class="header__ellips">
 					<img src="./img/header/e8.png" alt="e8">
 				</div>
 				<p class="header__name">Для фаст фуда</p>
-			</div>
-			<div class="header__card">
+			</a>
+			<a class="header__card">
 				<div class="header__ellips">
 					<img src="./img/header/e9.png" alt="e9">
 				</div>
 				<p class="header__name">Для залов</p>
-			</div>
-			<div class="header__card">
+			</a>
+			<a class="header__card">
 				<div class="header__ellips">
 					<img src="./img/header/e10.png" alt="e10">
 				</div>
 				<p class="header__name">Вспомогательное</p>
-			</div>
-			<div class="header__card">
+			</a>
+			<a class="header__card">
 				<div class="header__ellips">
 					<img src="./img/header/e11.png" alt="e11">
 				</div>
 				<p class="header__name">Для магазинов</p>
-			</div>
+			</a>
 		</div>
 	</div>
-	<div class="popup">
-	<div class="popup__body">
-		<div class="popup__content">
-			<div class="popup__close"><span></span></div>
-			<div class="popup__search search-header">
-				<span class="search-header__selected">Все</span>
-				<div class="search-header__category">
-
-					<label class="search-header__label">Выберите категорию:
-						<input disabled type="radio" name="category" class="search-header__input">
-					</label>
-					<label class="search-header__label">Все
-						<input type="radio" name="category" class="search-header__input" value="Все">
-					</label>
-					<label class="search-header__label">Холодильное-прехолодильное
-						<input type="radio" name="category" class="search-header__input" value="Холодильное-прехолодильное">
-					</label>
-					<label class="search-header__label">Другое
-						<input type="radio" name="category" class="search-header__input" value="Другое">
-					</label>
-					<label class="search-header__label">Все
-						<input type="radio" name="category" class="search-header__input" value="Все">
-					</label>
-					<label class="search-header__label">Холодильное-прехолодильное
-						<input type="radio" name="category" class="search-header__input" value="Холодильное-прехолодильное">
-					</label>
-					<label class="search-header__label">Другое
-						<input type="radio" name="category" class="search-header__input" value="Другое">
-					</label>
-					<label class="search-header__label">Все
-						<input type="radio" name="category" class="search-header__input" value="Все">
-					</label>
-					<label class="search-header__label">Холодильное
-						<input type="radio" name="category" class="search-header__input" value="Холодильное">
-					</label>
-					<label class="search-header__label">Другое
-						<input type="radio" name="category" class="search-header__input" value="Другое">
-					</label>
-
-				</div>
-
-				<div class="search-header__place">
-					<input type="text" name="search" id="search" autocomplete="off">
-				</div>
-
-				<div class="search-header__button"></div>
-			</div>
-		</div>
-	</div>
-</div>
 </header>
 		<main class="main">
 	<div class="informer">
 		<div class="informer__wrap">
 			<!-- Блок категорий товаров -->
 			<div class="informer__categories categories-informer">
-				<h2 class="categories-informer__h2">Целевые предложения</h2>
+				<div class="categories-informer__name">Целевые предложения</div>
 				<ul class="categories-informer__ul">
 					<li class="categories-informer__li"><a href="#" class="categories-informer__a">
 							Кафе, барам, ресторанам</a></li>
@@ -404,7 +387,255 @@
 			</div>
 		</div>
 	</div>
+	<div class="brands">
+		<div class="brands__wrap">
+			<div class="brands__row">
+
+				<div class="brands__column">
+					<div class="brands__card">
+						<div class="brands__content">
+							<img src="./img/main/brands/b1.png" alt="Бренд name">
+						</div>
+					</div>
+				</div>
+
+				<div class="brands__column">
+					<div class="brands__card">
+						<div class="brands__content">
+							<img src="./img/main/brands/b2.png" alt="Бренд name">
+						</div>
+					</div>
+				</div>
+
+				<div class="brands__column">
+					<div class="brands__card">
+						<div class="brands__content">
+							<img src="./img/main/brands/b3.png" alt="Бренд name">
+						</div>
+					</div>
+				</div>
+
+				<div class="brands__column">
+					<div class="brands__card">
+						<div class="brands__content">
+							<img src="./img/main/brands/b4.png" alt="Бренд name">
+						</div>
+					</div>
+				</div>
+
+				<div class="brands__column">
+					<div class="brands__card">
+						<div class="brands__content">
+							<img src="./img/main/brands/b5.png" alt="Бренд name">
+						</div>
+					</div>
+				</div>
+
+				<div class="brands__column">
+					<div class="brands__card">
+						<div class="brands__content">
+							<p>Все бренды</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="news">
+		<div class="news__wrap">
+			<h2 class="news__h2">Новости производителей</h2>
+
+			<div class="news__row">
+
+				<div class="news__column news__column_big">
+					<div class="news__card news__card_big">
+
+						<div class="news__img-container news__img-container_big">
+							<a href="#">
+								<img src="./img/main/news/n1.png" alt="Пекарский шкаф">
+							</a>
+						</div>
+
+						<div class="news__info">
+
+							<div class="news__dealer dealer">
+								<div class="dealer__name">Abat</div>
+								<div class="dealer__date">22.06.17</div>
+							</div>
+
+							<h3 class="news__h3">Новый разборный ротационный пекарский шкаф РПШ-18-8-6МР</h3>
+							<p class="news__description">Новый разборный ротационный пекарский шкаф РПШ-18-8-6МР: в комплекте
+								тележка-шпилька ТШГ-18 на 18 уровней 600х800 мм вместимость тележки-шпильки - 135 хлебных форм №7
+								инжекционный тип парообразования разборная конструкция увеличенное стекло двери. Память на 110 программ
+								(до 4-ех этапов в каждой программе)USB-порт. Таймер до 10 ч Регулировка влажности от 0 до 100%. 5 скоро
+							</p>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="news__column news__column_small">
+
+					<div class="news__card news__card_small">
+
+						<div class="news__img-container news__img-container_small">
+							<a href="#">
+								<img src="./img/main/news/n1.png" alt="Пекарский шкаф">
+							</a>
+						</div>
+
+						<div class="news__info">
+
+							<div class="news__dealer dealer">
+								<div class="dealer__name">Abat</div>
+								<div class="dealer__date">22.06.17</div>
+							</div>
+
+							<h3 class="news__h3">Новый разборный ротационный пекарский шкаф РПШ-18-8-6МР</h3>
+							<p class="news__description">Повышение энергоэффективности туннельных посудомоечных машин МПТ торговой
+								марки Abat</p>
+						</div>
+
+					</div>
+
+					<div class="news__card news__card_small">
+
+						<div class="news__img-container news__img-container_small">
+							<a href="#">
+								<img src="./img/main/news/n1.png" alt="Пекарский шкаф">
+							</a>
+						</div>
+
+						<div class="news__info">
+
+							<div class="news__dealer dealer">
+								<div class="dealer__name">Abat</div>
+								<div class="dealer__date">22.06.17</div>
+							</div>
+
+							<h3 class="news__h3">Новый разборный ротационный пекарский шкаф РПШ-18-8-6МР</h3>
+							<p class="news__description">Повышение энергоэффективности туннельных посудомоечных машин МПТ торговой
+								марки Abat</p>
+						</div>
+
+					</div>
+
+					<div class="news__card news__card_small">
+
+						<div class="news__img-container news__img-container_small">
+							<a href="#">
+								<img src="./img/main/news/n1.png" alt="Пекарский шкаф">
+							</a>
+						</div>
+
+						<div class="news__info">
+
+							<div class="news__dealer dealer">
+								<div class="dealer__name">Abat</div>
+								<div class="dealer__date">22.06.17</div>
+							</div>
+
+							<h3 class="news__h3">Новый разборный ротационный пекарский шкаф РПШ-18-8-6МР</h3>
+							<p class="news__description">Повышение энергоэффективности туннельных посудомоечных машин МПТ торговой
+								марки Abat</p>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<a href="#" class="news__all-news">Все новости</a>
+		</div>
 </main>
+		<div id="popup_1" class="popup">
+	<div class="popup__body">
+		<div class="popup__content">
+
+			<div class="popup__head">
+				<a href="./" class="popup__logo logo">
+					<p>Столовая.РУ</p>
+				</a>
+				<div class="popup__close _popup-close"><span></span></div>
+			</div>
+
+			<div class="popup__menu">
+				<ul class="popup__ul">
+					<li class="popup__li">
+						<p class="popup__name">Название</p>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+				</ul>
+				<ul class="popup__ul">
+					<li class="popup__li">
+						<p class="popup__name">Название</p>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+				</ul>
+				<ul class="popup__ul">
+					<li class="popup__li">
+						<p class="popup__name">Название</p>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+					<li class="popup__li">
+						<a href="#" class="popup__a">Ссылка</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</div>
 	</div>
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script src="./js/script.min.js"></script>

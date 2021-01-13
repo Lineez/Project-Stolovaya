@@ -4,7 +4,8 @@
 	&__wrap {
 		max-width: 1430px;
 		margin: 0 auto;
-		padding: calc(40px + (170 - 40) * ((100vw - 320px) / (1920 - 320))) calc(15px + (50 - 15) * ((100vw - 320px) / (1920 - 320)));
+		padding-left: calc(15px + (50 - 15) * ((100vw - 320px) / (1920 - 320)));
+		padding-right: calc(15px + (50 - 15) * ((100vw - 320px) / (1920 - 320)));
 	}
 
 	// .news__h2

@@ -1,4 +1,5 @@
 .popup {
+	line-break: anywhere;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -115,15 +116,18 @@
 		justify-content: space-between;
 		padding: 10px 0;
 		cursor: pointer;
+		border-bottom: 1px solid transparent;
+		transition: all 0.3s ease 0s;
 		&:hover {
-		border-bottom: 1px solid #00aa4b;
-		transform: scale(1.05);
+			transform: scale(1.01);
+			border-bottom: 1px solid #00aa4b;
 		}
 		&:after {
 		content: '>';
 		}
 		&:first-child {
 			border-bottom: none;
+			transform: none;
 			&:after {
 				content: '';
 				}
@@ -142,8 +146,5 @@
 	&__a {
 		font-size: 20px;
 		color: #00aa4b;
-		&:hover {
-			text-decoration: underline;
-		}
 	}
 }

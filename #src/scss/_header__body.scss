@@ -38,6 +38,10 @@
 			background-color: #ffaf2d;
 			border-radius: 50%;
 
+			&:hover {
+				animation: rotate 10s linear 0.3s infinite;
+			}
+
 			@media (min-width:1441px) {
 				display: none;
 			}
@@ -353,11 +357,17 @@
 		// .header__search-mobile
 		&__search-mobile {
 			padding: 0 10px;
+			&:hover {
+				animation: upDown 1s ease-in-out 0s infinite;
+			}
 		}
 
 		// .header__phone-mobile
 		&__phone-mobile {
 			padding: 0 10px;
+			&:hover {
+				animation: upDown 1s ease-in-out 0s infinite;
+			}
 		}
 
 
@@ -374,6 +384,7 @@
 			font-family: $f2;
 			line-height: calc(16/14);
 			color: #777777;
+			transition: all 0.7s ease 0s;
 
 			&:hover {
 				&:before {
@@ -468,3 +479,24 @@
 		}
 
 		//===============================================
+
+		@keyframes upDown {
+			0% {
+				transform: translate(0%);
+			}
+			50% {
+				transform: translateY(-15%);
+			}
+			100% {
+				transform: translateY(0%);
+			}
+		}
+
+		@keyframes rotate {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}

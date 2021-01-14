@@ -101,10 +101,15 @@ body {
 
 
 .wrapper {
+	position: relative;
+	padding-top: 212px;
 	min-width: 320px;
 	max-width: 100%;
 	font-family: $f1;
 	color: #343434;
+	@media (max-width:1440px) {
+		padding-top: 64px;
+	}
 }
 
 .logo {
@@ -113,10 +118,15 @@ body {
 	justify-content: center;
 	font-size: calc(20px + (33 - 20) * ((100vw - 320px) / (1920 - 320)));
 	color: #171717;
+	transition: all 0.7s ease 0s;
 
 	&:before {
 		content: url(../img/header/logo.png);
 		padding: 0 10px;
+	}
+
+	&:hover {
+		color: rgba(0, 0, 0, 0.375);
 	}
 }
 
@@ -128,3 +138,4 @@ body {
 @import '_main';
 @import '_swiper';
 @import '_popup';
+@import '_footer';

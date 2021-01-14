@@ -153,6 +153,10 @@
 		color: #fff;
 		border-radius: 25px;
 		background-color: #ffaf2d;
+		transition: all 0.7s ease 0s;
+		&:hover {
+		text-decoration: underline;
+		}
 	}
 }
 
@@ -195,7 +199,7 @@
 		display: flex;
 		flex-direction: column;
 		height: 475px;
-		padding: 0 60px 50px 30px;
+		padding: 0 30px 50px;
 
 		@media (max-width:1440px) {
 			height: auto;
@@ -227,7 +231,6 @@
 	// .sale-informer__h2
 	&__h2 {
 		padding-bottom: 20px;
-		font-size: 40px;
 		color: #121212;
 		line-height: calc(40/40);
 	}

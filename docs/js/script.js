@@ -408,3 +408,29 @@ searchMobile.addEventListener('click', () => {
 searcClose.addEventListener('click', () => {
 	search.classList.remove('active');
 })
+
+// footer
+const footerBtn = document.querySelectorAll('.footer__h2');
+const footerList = document.querySelectorAll('.footer__ul');
+
+footerBtn.forEach((el, key) => {
+	el.addEventListener('click', () => {
+		// Делаем выбранную кнопку и вкладку не активной
+		if (el.classList.contains('active')) {
+			el.classList.remove('active');
+			footerList[key].classList.remove('active');
+		} else {
+			// Убираем все активные кнопки
+			footerBtn.forEach(tab => {
+				tab.classList.remove('active');
+			});
+			// Закрываем все активные вкладки
+			footerList.forEach(body => {
+				body.classList.remove('active');
+			});
+			// Делаем выбранную кнопку и вкладку активной
+			el.classList.add('active');
+			footerList[key].classList.add('active');
+		}
+	})
+})

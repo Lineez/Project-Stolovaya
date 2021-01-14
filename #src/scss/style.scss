@@ -121,7 +121,7 @@ body {
 }
 
 .h2 {
-	font-size: 40px;
+	font-size: calc(26px + (40 - 26) * ((100vw - 320px) / (1920 - 320)));
 }
 
 @import '_header';

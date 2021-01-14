@@ -12,9 +12,14 @@
 	}
 	// .main__recommend
 	&__recommend {}
+
+	&__about {
+		padding: calc(40px + (170 - 40) * ((100vw - 320px) / (1920 - 320))) 0;
+	}
 }
 
 @import '_informer';
 @import '_brands';
 @import '_news';
 @import '_recommend';
+@import '_about';

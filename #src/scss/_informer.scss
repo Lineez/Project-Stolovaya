@@ -241,6 +241,7 @@
 		font-family: $f2;
 		color: #121212;
 		line-height: calc(24/18);
+		transition: all 0.3s ease 0s;
 
 		&:after {
 			content: '>';
@@ -248,6 +249,7 @@
 		}
 
 		&:hover {
+			text-decoration: underline;
 			color: #ffaf2d;
 		}
 	}

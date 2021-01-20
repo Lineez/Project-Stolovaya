@@ -215,7 +215,7 @@ new Swiper('.swiper-container', {
 
 		// Буллеты
 		type: 'bullets',
-		// clickable: true,	
+		clickable: true,
 		// // Динамические буллеты
 		// dynamicBullets: true,
 		// // Кастомные буллеты
@@ -391,7 +391,7 @@ const searchList = document.querySelector('.search-header__body');
 
 searchInput.addEventListener('keydown', (e) => {
 	searchList.classList.add('active');
-	if(searchInput.value == '') {
+	if (searchInput.value == '') {
 		searchList.classList.remove('active');
 	}
 })
@@ -409,6 +409,7 @@ searcClose.addEventListener('click', () => {
 	search.classList.remove('active');
 })
 
+//===============================================
 // footer
 const footerBtn = document.querySelectorAll('.footer__h2');
 const footerList = document.querySelectorAll('.footer__ul');
@@ -434,3 +435,22 @@ footerBtn.forEach((el, key) => {
 		}
 	})
 })
+
+//===============================================
+// Скрыть/показать меню при прокрутке
+const header = document.querySelector('.header');
+const headerBottom = document.querySelector('.header__bottom');
+
+let lastScrollTop = 0;
+
+window.addEventListener("scroll", () => {
+	let st = window.pageYOffset || document.documentElement.scrollTop;
+	if (st > lastScrollTop) {
+		headerBottom.classList.add('hide');
+	} else {
+		headerBottom.classList.remove('hide');
+	}
+	lastScrollTop = st;
+});
+
+//===============================================

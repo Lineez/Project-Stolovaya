@@ -105,7 +105,7 @@ new Swiper('.swiper-container', {
 
 		// Буллеты
 		type: 'bullets',
-		// clickable: true,	
+		clickable: true,
 		// // Динамические буллеты
 		// dynamicBullets: true,
 		// // Кастомные буллеты

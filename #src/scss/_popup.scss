@@ -114,7 +114,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 10px 0;
+		margin: 10px 0;
 		cursor: pointer;
 		border-bottom: 1px solid transparent;
 		transition: all 0.3s ease 0s;
@@ -144,7 +144,27 @@
 	
 	// .popup__a
 	&__a {
+		width: 100%;
+				padding: 10px 0;
 		font-size: 20px;
 		color: #00aa4b;
+	}
+
+	&__back {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		font-size: 26px;
+		&:before {
+			content: '<';
+			transition: all 0.7s ease 0s;
+		}
+		&:hover {
+			color: #00aa4b;
+			transition: all 0.7s ease 0s;
+			&:before {
+				transform: rotateY(180deg);
+			}
+		}
 	}
 }

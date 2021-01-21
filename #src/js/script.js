@@ -26,35 +26,6 @@ cart.addEventListener('mouseout', () => {
 })
 
 //===============================================
-// Почта
-const mail = document.querySelector('.top-header__li_mail');
-const mailSpan = document.querySelector('.top-header__li_mail span');
-
-mail.addEventListener('click', (e) => {
-	mailSpan.classList.toggle('active');
-	if (phonePopup.classList.contains('active')) {
-		phonePopup.classList.remove('active');
-	}
-});
-
-//===============================================
-// Телефон
-const phone = document.querySelector('.top-header__li_phone');
-const phonePopup = document.querySelector('.top-header__phone-container');
-const phoneClose = document.querySelector('.phone__close');
-
-phone.addEventListener('click', (e) => {
-	phonePopup.classList.toggle('active');
-	if (mailSpan.classList.contains('active')) {
-		mailSpan.classList.remove('active');
-	}
-})
-
-phoneClose.addEventListener('click', (e) => {
-	phonePopup.classList.remove('active');
-})
-
-//===============================================
 // При клике на все (выбор категории поиска)
 
 const viewCategory = document.querySelector('.search-header__selected');
